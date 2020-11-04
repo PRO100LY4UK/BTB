@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMechanics : MonoBehaviour
+public class Mover : MonoBehaviour
 {
     public float speedMove;
     public float jumpPower;
@@ -11,15 +11,12 @@ public class CharacterMechanics : MonoBehaviour
     private Vector3 moveVector;
     
     private CharacterController ch_controller;
-    //private Animator ch_animator;
-    //
 
     private MobileController mContr;
 
     private void Start()
     {
         ch_controller = GetComponent<CharacterController>();
-        //ch_animator = GetComponent < Animator() >;
         mContr = GameObject.FindGameObjectWithTag("Joystic").GetComponent<MobileController>();
     }
 
@@ -37,14 +34,12 @@ public class CharacterMechanics : MonoBehaviour
             moveVector.x = mContr.Horizontal() * speedMove;
             moveVector.z = mContr.Vertical() * speedMove;
 
-
             if (Vector3.Angle(Vector3.forward, moveVector) > 1f || Vector3.Angle(Vector3.forward, moveVector) == 0)
             {
                 Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, speedMove, 0.0f);
                 transform.rotation = Quaternion.LookRotation(direct);
             }
         }
-       
 
         moveVector.y = gravityForce;
         ch_controller.Move(moveVector * Time.deltaTime);
@@ -56,9 +51,8 @@ public class CharacterMechanics : MonoBehaviour
         else gravityForce = -1f;
         if (Input.GetKeyDown(KeyCode.Space) && ch_controller.isGrounded) gravityForce = jumpPower;
         {
-
+            //something needs to happen here
         }
-
     }
 }
  

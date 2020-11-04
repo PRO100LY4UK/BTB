@@ -31,8 +31,8 @@ public class MobileController : MonoBehaviour, IDragHandler, IPointerUpHandler, 
         {
             pos.x = (pos.x / joysticBG.rectTransform.sizeDelta.x);  //getting the coordinates of the touch position on the joystick
             pos.y = (pos.y / joysticBG.rectTransform.sizeDelta.y);  //getting the coordinates of the touch position on the joystick
-
-            inputVector = new Vector2(pos.x * 2 - 1, pos.y * 2 - 1);  //setting precise touch coordinates
+            
+            inputVector = new Vector2(pos.x * 2, pos.y * 2);  //setting precise touch coordinates
             inputVector = (inputVector.magnitude > 1.0f) ? inputVector.normalized : inputVector;
 
             joystic.rectTransform.anchoredPosition = new Vector2(inputVector.x * (joysticBG.rectTransform.sizeDelta.x / 2), inputVector.y * (joysticBG.rectTransform.sizeDelta.y / 2));
@@ -42,12 +42,12 @@ public class MobileController : MonoBehaviour, IDragHandler, IPointerUpHandler, 
     public float Horizontal()
     {
         if (inputVector.x != 0) return inputVector.x;
-        else return Input.GetAxis("Horizontal");     
+        return Input.GetAxis("Horizontal");     
     }
 
     public float Vertical()
     {
         if (inputVector.y != 0) return inputVector.y;
-        else return Input.GetAxis("Vertical");
+        return Input.GetAxis("Vertical");
     }
 }

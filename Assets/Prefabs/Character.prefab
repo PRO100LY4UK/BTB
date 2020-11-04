@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1307772866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1307772867}
+  m_Layer: 0
+  m_Name: PickedPositiion
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1307772867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307772866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 476774814071669725}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6636901124308496542
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,7 +46,8 @@ GameObject:
   - component: {fileID: 2691327910363368370}
   - component: {fileID: 1506774795}
   - component: {fileID: 1506774789}
-  - component: {fileID: 6486548420233366614}
+  - component: {fileID: 1506774788}
+  - component: {fileID: 8780732784249476627}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -34,7 +65,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.77, y: 3.81, z: 0.24}
   m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 6293350607438345944}
+  - {fileID: 1307772867}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94,7 +127,7 @@ CharacterController:
   m_GameObject: {fileID: 6636901124308496542}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 2.0000002
   m_Radius: 0.50000006
@@ -151,7 +184,7 @@ MonoBehaviour:
   pickUpButton: {fileID: 0}
   dropButton: {fileID: 0}
   objectToPickUp: {fileID: 0}
-  pickPositiion: {fileID: 0}
+  pickPositiion: {fileID: 1307772866}
   onCarry: {fileID: 0}
 --- !u!65 &1506774789
 BoxCollider:
@@ -166,19 +199,62 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2200555, y: 2.0000002, z: 1.2175165}
   m_Center: {x: -0.027888829, y: 0, z: -0.0032819111}
---- !u!54 &6486548420233366614
-Rigidbody:
+--- !u!136 &1506774788
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6636901124308496542}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.50000006
+  m_Height: 2.0000002
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8780732784249476627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636901124308496542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d81c2846313da459e8bc39701d41b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCastPoint: {fileID: 8202455798404109013}
+  rayCastRange: 3
+  Target: {fileID: 0}
+--- !u!1 &8202455798404109013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6293350607438345944}
+  m_Layer: 0
+  m_Name: RaycastPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6293350607438345944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202455798404109013}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.02788883, y: 0, z: -0.003281908}
+  m_LocalScale: {x: 0.22222224, y: 0.22222224, z: 0.22222224}
+  m_Children: []
+  m_Father: {fileID: 476774814071669725}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
