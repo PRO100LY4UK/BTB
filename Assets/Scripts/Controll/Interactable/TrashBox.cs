@@ -23,7 +23,7 @@ public class TrashBox : Interactable
         }
         else
         {
-            Debug.Log(("Anything else is trying to access the Entity but the Player"));
+            Debug.Log(("Anything else is trying to access the Entity not the Player"));
             //Something else then the player is trying to interact with
             //Do whatever
         }
@@ -65,7 +65,7 @@ public class TrashBox : Interactable
     private IEnumerator StopPlayerInteraction()
     {
         //Drop Item or whatever
-        Debug.Log(("Stop Interacting with Player"));
+        Debug.Log("Stop Interacting with Player");
         StopCoroutine(PlayerInteraction());
         transform.parent = null;
         yield return null;

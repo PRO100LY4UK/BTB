@@ -47,7 +47,9 @@ public class Interaction : MonoBehaviour
     private void GetInteractableTarget()
     {
         //SET TARGET to Casting.target IF it have INTERACTABLE Component, if not target = null
+        // target = casting.target если casting.target существует и есть компонент 
         target = Casting.target != null ? Casting.target?.GetComponent<Interactable>() : null;
+        
         if (target != null)
         {
             // () => FUNCTIONNAME , this is how you call a "delegate" EVENT , its also called a "callback function"

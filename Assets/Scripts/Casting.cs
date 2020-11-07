@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Casting : MonoBehaviour
 {   
@@ -67,6 +66,7 @@ public class Casting : MonoBehaviour
          * }
          */
         //Get new target IF is in RANGE
+        
         target = hit.distance <= rayCastRange ? hit.transform?.gameObject : null;
         Target = target;
     }

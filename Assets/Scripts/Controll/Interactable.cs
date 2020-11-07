@@ -11,10 +11,10 @@ public abstract class Interactable : MonoBehaviour
     public delegate void InteractAction(GameObject entity);
 
     public InteractAction OnInteractAction;
-
+ 
     [SerializeField] private GameObject interactingWith;
-    public GameObject InteractingWith => interactingWith;
-    
+    public GameObject InteractingWith => interactingWith;    //interactingWith take value form InteractingWith
+
     public void StopInteraction()
     {
         if (OnStopInteractAction != null) OnStopInteractAction();
