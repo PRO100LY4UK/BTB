@@ -8,9 +8,7 @@ public class Wheel : Interactable
         OnInteractAction += StartInteracting;  // add StartInteracting to OnInteract void
         OnStopInteractAction += StopInteracting;
     }
-
-
-
+    
     private void StartInteracting(GameObject entity)  
     {
         SetInteractingWith(entity);
@@ -26,10 +24,7 @@ public class Wheel : Interactable
 
     private IEnumerator PlayerInteraction()
     {
-        Interaction playerInteraction = InteractingWith.GetComponent<Interaction>();
-        gameObject.transform.parent = playerInteraction.PickPosition.transform;
-        gameObject.transform.position = playerInteraction.PickPosition.transform.position;
-
+        Destroy(gameObject);
         yield return new WaitForSeconds(1f);
     }
 
@@ -47,10 +42,7 @@ public class Wheel : Interactable
 
     private IEnumerator StopPlayerInteraction()
     {
-        Debug.Log("Stop Interacting with Player");
         StopCoroutine(PlayerInteraction());
-        transform.parent = null;
         yield return null;
     }
-
 }

@@ -12,8 +12,10 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject pickPosition;
     public GameObject PickPosition => pickPosition;
 
-    private Interactable target;
-    private Interactable interactingTarget;
+    [Header("Interactable INFRONT of Player")]
+    [SerializeField] private Interactable seeingTarget;
+    [Header("Interacting WITH Target")]
+    [SerializeField] private Interactable interactingTarget;
     
     private void Update()
     {
@@ -35,7 +37,7 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetKeyDown(abortKey))
             {
-                target.StopInteraction();
+                seeingTarget.StopInteraction();
                 interactingTarget = null;
             }
         }
@@ -48,12 +50,12 @@ public class Interaction : MonoBehaviour
     {
         //SET TARGET to Casting.target IF it have INTERACTABLE Component, if not target = null
         // target = casting.target если casting.target существует и есть компонент 
-        target = Casting.target != null ? Casting.target?.GetComponent<Interactable>() : null;
+        seeingTarget = Casting.target != null ? Casting.target?.GetComponent<Interactable>() : null;
         
-        if (target != null)
+        if (seeingTarget)
         {
             // () => FUNCTIONNAME , this is how you call a "delegate" EVENT , its also called a "callback function"
-            InteractWithTarget(() => target.StartInteraction(gameObject));
+            InteractWithTarget(() => seeingTarget.StartInteraction(gameObject));
         }
     }
 
@@ -61,11 +63,13 @@ public class Interaction : MonoBehaviour
     {
         if (Input.GetKeyDown(interactKey))
         {
-            interactingTarget = target;
+            interactingTarget = seeingTarget;
             interaction.Invoke();
         }
     }
 
+    
+    
     /*[SerializeField]
     private Button pickUpButton;
     [SerializeField]
