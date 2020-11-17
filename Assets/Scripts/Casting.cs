@@ -67,6 +67,14 @@ public class Casting : MonoBehaviour
          */
         //Get new target IF is in RANGE
         
+        /*
+         * hit <- The GameObject we hit with the Raycast
+         * check if "HIT" GameObject is in range (<= rayCastRange)
+         * if YES return: hit.transform?.gameObject
+         *     -> get the "TRANSFORM" of .gameObject IF IT IS NOT NULL
+         *     -> if ".gameObject" IS NULL -> Return NULL
+         * if NOT (nothing is in range) return ":null"
+         */
         target = hit.distance <= rayCastRange ? hit.transform?.gameObject : null;   // target = gameObject if hit.distance <= rayCastRange and if ???
         Target = target;
     }
