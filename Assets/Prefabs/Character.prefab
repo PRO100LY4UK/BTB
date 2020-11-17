@@ -46,11 +46,10 @@ GameObject:
   - component: {fileID: 2691327910363368370}
   - component: {fileID: 1506774795}
   - component: {fileID: 1506774789}
-  - component: {fileID: 1506774788}
   - component: {fileID: 8780732784249476627}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +93,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -118,6 +118,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!143 &5195756593491587618
 CharacterController:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ CharacterController:
   m_GameObject: {fileID: 6636901124308496542}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Height: 2.0000002
   m_Radius: 0.50000006
@@ -181,11 +182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b75e8aabefaa54f8b9ce45578f7ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpButton: {fileID: 0}
-  dropButton: {fileID: 0}
-  objectToPickUp: {fileID: 0}
-  pickPositiion: {fileID: 1307772866}
-  onCarry: {fileID: 0}
+  interactKey: 102
+  abortKey: 98
+  pickPosition: {fileID: 1307772866}
+  seeingTarget: {fileID: 0}
+  interactingTarget: {fileID: 0}
 --- !u!65 &1506774789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -199,20 +200,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2200555, y: 2.0000002, z: 1.2175165}
   m_Center: {x: -0.027888829, y: 0, z: -0.0032819111}
---- !u!136 &1506774788
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636901124308496542}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.50000006
-  m_Height: 2.0000002
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8780732784249476627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayCastPoint: {fileID: 8202455798404109013}
-  rayCastRange: 3
+  rayCastRange: 10
   Target: {fileID: 0}
 --- !u!1 &8202455798404109013
 GameObject:

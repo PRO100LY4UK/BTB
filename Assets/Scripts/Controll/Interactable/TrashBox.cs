@@ -38,7 +38,8 @@ public class TrashBox : Interactable
         //Pickup Item or whatever
         gameObject.transform.parent = playerInteraction.PickPosition.transform;
         gameObject.transform.position = playerInteraction.PickPosition.transform.position;
-        
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
         yield return new WaitForSeconds(1f);
     }
 
@@ -68,6 +69,7 @@ public class TrashBox : Interactable
         Debug.Log("Stop Interacting with Player");
         StopCoroutine(PlayerInteraction());
         transform.parent = null;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
         yield return null;
     }
 }
