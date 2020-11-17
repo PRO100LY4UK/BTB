@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 488416}
   - component: {fileID: 3381016}
   - component: {fileID: 2378704}
+  - component: {fileID: 7041992757925830974}
   m_Layer: 0
   m_Name: WheelT1-3
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +83,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7041992757925830974
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011212806, y: 0.011042458, z: 0.0069573103}
+  m_Center: {x: 0, y: 4.656613e-10, z: 0.0000000012805685}
 --- !u!1 &110824
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +108,7 @@ GameObject:
   - component: {fileID: 432024}
   - component: {fileID: 3338582}
   - component: {fileID: 2309144}
+  - component: {fileID: 7866496508901012137}
   m_Layer: 0
   m_Name: WheelT1-4
   m_TagString: Untagged
@@ -137,6 +154,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -162,6 +180,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7866496508901012137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110824}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011212806, y: 0.011042458, z: 0.0069573103}
+  m_Center: {x: 0, y: 4.656613e-10, z: 0.0000000022118911}
 --- !u!1 &125268
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +205,7 @@ GameObject:
   - component: {fileID: 426612}
   - component: {fileID: 3359828}
   - component: {fileID: 2355954}
+  - component: {fileID: 1454374267006312811}
   m_Layer: 0
   m_Name: Truck 1 Cargo
   m_TagString: Untagged
@@ -218,6 +251,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -242,6 +276,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1454374267006312811
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05828497, y: 0.024175435, z: 0.024110992}
+  m_Center: {x: 0, y: 0.0000000018626451, z: 4.656613e-10}
 --- !u!1 &132668
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +301,7 @@ GameObject:
   - component: {fileID: 486712}
   - component: {fileID: 3391724}
   - component: {fileID: 2342916}
+  - component: {fileID: 3608202205332309103}
   m_Layer: 0
   m_Name: WheelT1-1
   m_TagString: Untagged
@@ -298,6 +347,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -323,6 +373,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3608202205332309103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011212804, y: 0.011042457, z: 0.0036143009}
+  m_Center: {x: -4.1014828e-25, y: 9.313226e-10, z: 2.910383e-10}
 --- !u!1 &135512
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +398,7 @@ GameObject:
   - component: {fileID: 499024}
   - component: {fileID: 3327024}
   - component: {fileID: 2365576}
+  - component: {fileID: 7547226049765292803}
   m_Layer: 0
   m_Name: WheelT1-7
   m_TagString: Untagged
@@ -379,6 +444,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -404,6 +470,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7547226049765292803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011212805, y: 0.011042458, z: 0.0069573103}
+  m_Center: {x: 0, y: 4.656613e-10, z: 5.820766e-10}
 --- !u!1 &140456
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +495,7 @@ GameObject:
   - component: {fileID: 476280}
   - component: {fileID: 3371676}
   - component: {fileID: 2336884}
+  - component: {fileID: 1124424451791420956}
   m_Layer: 0
   m_Name: WheelT1-8
   m_TagString: Untagged
@@ -460,6 +541,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -485,6 +567,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1124424451791420956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011212805, y: 0.011042458, z: 0.0069573103}
+  m_Center: {x: 0, y: 4.656613e-10, z: 5.820766e-10}
 --- !u!1 &148478
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +592,7 @@ GameObject:
   - component: {fileID: 427436}
   - component: {fileID: 3333220}
   - component: {fileID: 2320820}
+  - component: {fileID: 5158593757891529581}
   m_Layer: 0
   m_Name: WheelT1-5
   m_TagString: Untagged
@@ -541,6 +638,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -566,6 +664,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5158593757891529581
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011212804, y: 0.011042456, z: 0.0036143004}
+  m_Center: {x: 0, y: 0.0000000013969839, z: -5.820766e-10}
 --- !u!1 &154144
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +689,7 @@ GameObject:
   - component: {fileID: 432348}
   - component: {fileID: 3363914}
   - component: {fileID: 2364710}
+  - component: {fileID: 5847649798286540227}
   m_Layer: 0
   m_Name: Truck_1_Blue
   m_TagString: Untagged
@@ -630,6 +743,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -656,6 +770,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5847649798286540227
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.021381654, y: 0.035457246, z: 0.02936099}
+  m_Center: {x: 0.029506143, y: 0, z: 0}
 --- !u!1 &167224
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +795,7 @@ GameObject:
   - component: {fileID: 413060}
   - component: {fileID: 3362196}
   - component: {fileID: 2356888}
+  - component: {fileID: 6691169398143304698}
   m_Layer: 0
   m_Name: WheelT1-2
   m_TagString: Untagged
@@ -712,6 +841,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -737,6 +867,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6691169398143304698
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167224}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011212804, y: 0.011042457, z: 0.0036143009}
+  m_Center: {x: -4.1014828e-25, y: 4.656613e-10, z: 2.910383e-10}
 --- !u!1 &174268
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +892,7 @@ GameObject:
   - component: {fileID: 468144}
   - component: {fileID: 3315164}
   - component: {fileID: 2374428}
+  - component: {fileID: 5293480247056415680}
   m_Layer: 0
   m_Name: WheelT1-6
   m_TagString: Untagged
@@ -793,6 +938,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -818,3 +964,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5293480247056415680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011212804, y: 0.011042456, z: 0.0036143004}
+  m_Center: {x: 0, y: 9.313226e-10, z: -1.1641532e-10}

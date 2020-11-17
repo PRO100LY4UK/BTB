@@ -12,7 +12,7 @@ public class Casting : MonoBehaviour
     public static float distanceFromTarget { get; set; }
     public static GameObject target { get; set; }
     public static GameObject previousTarget { get; set; }
-    public static bool IsNewTarget => target != previousTarget;
+    public static bool IsNewTarget => target != previousTarget;    //IsNewTarget = bool result of (target != previousTarget)
 
     [SerializeField] private GameObject Target;
     
@@ -67,7 +67,7 @@ public class Casting : MonoBehaviour
          */
         //Get new target IF is in RANGE
         
-        target = hit.distance <= rayCastRange ? hit.transform?.gameObject : null;
+        target = hit.distance <= rayCastRange ? hit.transform?.gameObject : null;   // target = gameObject if hit.distance <= rayCastRange and if ???
         Target = target;
     }
 
