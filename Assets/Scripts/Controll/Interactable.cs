@@ -23,6 +23,8 @@ public abstract class Interactable : MonoBehaviour
     public void StartInteraction(GameObject entity)
     {
         if (OnInteractAction != null) OnInteractAction(entity);
+
+        OnInteractAction?.Invoke(entity);
     }
 
     public void SetInteractingWith(GameObject newTarget)

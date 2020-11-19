@@ -11,8 +11,7 @@ public class BoxCounter : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<TrashBox>())
-        {
-            Debug.Log("Box enter");
+        {           
             boxCount += 1;
             boxCounterText.text = ("Boxes: " + boxCount.ToString());
             Destroy(other.gameObject, 3);
