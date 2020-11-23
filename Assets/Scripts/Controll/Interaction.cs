@@ -51,12 +51,10 @@ public class Interaction : MonoBehaviour
         //SET TARGET to Casting.target IF it have INTERACTABLE Component, if not target = null
         // target = casting.target если casting.target существует и есть компонент 
         seeingTarget = Casting.target != null ? Casting.target?.GetComponent<Interactable>() : null;
-        
-        if (seeingTarget)
-        {
-            // () => FUNCTIONNAME , this is how you call a "delegate" EVENT , its also called a "callback function"
-            InteractWithTarget(() => seeingTarget.StartInteraction(gameObject));
-        }
+
+        if (!seeingTarget) return;
+        // () => FUNCTIONNAME , this is how you call a "delegate" EVENT , its also called a "callback function"
+        InteractWithTarget(() => seeingTarget.StartInteraction(gameObject));
     }
 
     private void InteractWithTarget(Action interaction)

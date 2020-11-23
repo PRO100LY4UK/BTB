@@ -11,7 +11,7 @@ public class TrashSpawner : MonoBehaviour
     private int trashToSpawn;
     [SerializeField]
     private int spawnDelay = 2;
-
+    
     private void TruckIsReady()
     {
         StartCoroutine(Spawner());
@@ -24,8 +24,5 @@ public class TrashSpawner : MonoBehaviour
             Instantiate(trashBox, spawnPoint.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(spawnDelay);
         }
-        
-        //Call here 
-        EventHandler.Instance.TruckDestroy();
     }
 }

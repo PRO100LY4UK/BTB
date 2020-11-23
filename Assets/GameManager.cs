@@ -2,10 +2,8 @@
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager gameManager;
-    private void Awake() => gameManager = this;
+    public static GameManager Instance;
+    private void Awake() => Instance = this;
     
     public string TruckStatus;
-
-    
 }

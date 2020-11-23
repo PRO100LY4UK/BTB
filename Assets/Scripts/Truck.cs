@@ -1,44 +1,56 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Truck : MonoBehaviour
-{    
-    [Header("TrackStatus")]
-    [SerializeField]private string truckStatus;
-
+{
     [Header("TrashSpawnSettings")]
     [SerializeField]private GameObject spawnPoint;
     [SerializeField]private GameObject trashBox = default;
     [SerializeField]private int trashToSpawn;
     [SerializeField]private int spawnDelay = 2;
 
-    [Header("TruckAnimations")]
-    [SerializeField]private Animation truckAnim;    
+    public UnityEvent onTruckComing;
+    public UnityEvent onSpawnTrash;
+    public UnityEvent onTruckLeaving;
+    public UnityEvent onTruckDestroy;
     
+    private NavMeshAgent agent;
+    private TruckSpawner truckSpawner;
 
-    private void Start()
-    {               
-        EventHandler.Instance.onTruckComing += truckComing;
-        EventHandler.Instance.onSpawnTrash += truckSpawningTrash;
-        EventHandler.Instance.onTruckLeaving += truckLeaving;
-        EventHandler.Instance.onTruckDestroy += DestroyTruck;
+    private List<GameObject> truckDestinationPoints;
+    private int destination;
 
-        EventHandler.Instance.TruckComing();
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        truckSpawner = FindObjectOfType<TruckSpawner>();
+        truckDestinationPoints = truckSpawner.DestinationPoints;
     }
 
-
-    private void truckComing()
+    private void Start()
     {
-        truckStatus = ("Coming");
-        GameManager.gameManager.TruckStatus = truckStatus;
-        truckAnim.Play("truckComing");
-        
+        SubscribeToEvents();
+        StartCoroutine(truckComing());
+    }
+
+    private IEnumerator truckComing()
+    {
+        onTruckComing.Invoke();
+        foreach (var destinationPoint in truckDestinationPoints)
+        {
+            MoveTo(destinationPoint);
+            yield return new WaitUntil(() => agent.hasPath);
+            yield return new WaitUntil(() => agent.remainingDistance <= 0.5f);
+        }
+        yield return new WaitForSeconds(0.5f);
+        onSpawnTrash.Invoke();
     }
 
     private void truckSpawningTrash()
     {
-        truckStatus = ("SpawningTrash");
-        GameManager.gameManager.TruckStatus = truckStatus;
         StartCoroutine(Spawner());
     }
 
@@ -49,25 +61,27 @@ public class Truck : MonoBehaviour
             Instantiate(trashBox, spawnPoint.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(spawnDelay);
         }
-        EventHandler.Instance.TruckLeaving();
+        onTruckLeaving.Invoke();
     }
-
 
     private void truckLeaving()
     {
-        truckStatus = ("Leaving");
-        GameManager.gameManager.TruckStatus = truckStatus;
-        truckAnim.Play("truckLeaving");
+        onTruckDestroy.Invoke();
     }
-
 
     private void DestroyTruck()
     {
         Destroy(gameObject);
-        GameManager.gameManager.TruckStatus = ("Destroyed");
-        EventHandler.Instance.TruckSpawn();
+        truckSpawner.TruckSpawn();
     }
-    
 
-   
+    private void MoveTo(GameObject destination)
+        => agent.SetDestination(destination.transform.position);
+
+    private void SubscribeToEvents()
+    {
+        onSpawnTrash.AddListener(truckSpawningTrash);
+        onTruckLeaving.AddListener(truckLeaving);
+        onTruckDestroy.AddListener(DestroyTruck);
+    }
 }
