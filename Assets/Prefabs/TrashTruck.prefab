@@ -835,8 +835,7 @@ MonoBehaviour:
     type: 3}
   trashToSpawn: 4
   spawnDelay: 2
-  truckComingAnim: {fileID: 0}
-  truckLeavingAnim: {fileID: 0}
+  truckAnim: {fileID: 4258305769313326707}
 --- !u!111 &4258305769313326707
 Animation:
   m_ObjectHideFlags: 0
@@ -847,9 +846,12 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 0}
+  - {fileID: 7400000, guid: ab3ff85012630e743a5f9e858cecc7ba, type: 2}
+  - {fileID: 7400000, guid: ddd4e2515689ef14da86b75ab7c9830c, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &5189543180546770875

@@ -30,6 +30,7 @@ public class Truck : MonoBehaviour
     private void truckComing()
     {
         truckStatus = ("Coming");
+        GameManager.gameManager.TruckStatus = truckStatus;
         truckAnim.Play("truckComing");
         
     }
@@ -37,6 +38,7 @@ public class Truck : MonoBehaviour
     private void truckSpawningTrash()
     {
         truckStatus = ("SpawningTrash");
+        GameManager.gameManager.TruckStatus = truckStatus;
         StartCoroutine(Spawner());
     }
 
@@ -54,11 +56,18 @@ public class Truck : MonoBehaviour
     private void truckLeaving()
     {
         truckStatus = ("Leaving");
+        GameManager.gameManager.TruckStatus = truckStatus;
         truckAnim.Play("truckLeaving");
     }
 
 
-    private void DestroyTruck() => Destroy(gameObject);
+    private void DestroyTruck()
+    {
+        Destroy(gameObject);
+        GameManager.gameManager.TruckStatus = ("Destroyed");
+        EventHandler.Instance.TruckSpawn();
+    }
+    
 
    
 }

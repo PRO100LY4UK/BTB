@@ -10,6 +10,12 @@ public class EventHandler : MonoBehaviour
     private void Awake() 
         =>Instance = this;
 
+
+    //Event whenever a NEW TRUCK is deployed
+    public event Action onTruckSpawn;
+    public void TruckSpawn() => onTruckSpawn?.Invoke();
+
+
     public event Action onTruckComing;
     public void TruckComing() => onTruckComing?.Invoke();
 
@@ -29,7 +35,6 @@ public class EventHandler : MonoBehaviour
     public void TruckDestroy() => onTruckDestroy?.Invoke();
 
 
-    //Event whenever a NEW TRUCK is deployed
-    public event Action onTruckDeploy;
-    public void TruckDeploy() => onTruckDeploy?.Invoke();
+
+ 
 }
