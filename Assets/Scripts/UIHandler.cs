@@ -6,8 +6,8 @@ public class UIHandler : MonoBehaviour
 
     public static UIHandler Instance;
 
-    private void Start()
-        => EventHandler.Instance.onTestEvent += ToggleScreen;
+    //private void Start()
+      //  => EventHandler.Instance.onTestEvent += ToggleScreen;
 
 
     private void ToggleScreen()

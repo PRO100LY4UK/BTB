@@ -720,9 +720,8 @@ GameObject:
   - component: {fileID: 5189543180549971657}
   - component: {fileID: 5189543180548972453}
   - component: {fileID: 1811555927456282432}
-  - component: {fileID: 5189543178935177078}
-  - component: {fileID: 5189543178935177097}
-  - component: {fileID: 5189543178935177100}
+  - component: {fileID: 7966726449241399185}
+  - component: {fileID: 4258305769313326707}
   m_Layer: 0
   m_Name: TrashTruck
   m_TagString: Untagged
@@ -818,43 +817,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.021381654, y: 0.035457246, z: 0.02936099}
   m_Center: {x: 0.029506143, y: 0, z: 0}
---- !u!95 &5189543178935177078
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5189543180546756771}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a1786d0e40209c4689cb2dcae030c51, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5189543178935177097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5189543180546756771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c32c57db785b6040a38983d36787b68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 5189543180146154683}
-  trashBox: {fileID: 4088281181450010536, guid: 06123effc11c0fb4594ab797bdc4dbc3,
-    type: 3}
-  trashToSpawn: 4
-  spawnDelay: 2
---- !u!114 &5189543178935177100
+--- !u!114 &7966726449241399185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -866,6 +829,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0139816f7ed19cc4f91d7ae3dfa42559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  truckStatus: 
+  spawnPoint: {fileID: 5189543180146154683}
+  trashBox: {fileID: 4088281181450010536, guid: 06123effc11c0fb4594ab797bdc4dbc3,
+    type: 3}
+  trashToSpawn: 4
+  spawnDelay: 2
+  truckComingAnim: {fileID: 0}
+  truckLeavingAnim: {fileID: 0}
+--- !u!111 &4258305769313326707
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189543180546756771}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5189543180546770875
 GameObject:
   m_ObjectHideFlags: 0
