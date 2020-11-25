@@ -7,16 +7,18 @@ public class TruckSpawner : MonoBehaviour
     public GameObject[] vehicles = default;
     
     [Header("TruckWayPoints")] 
-    [SerializeField] private List<GameObject> destinationPoints = default;
-    public List<GameObject> DestinationPoints => destinationPoints;
-    
-    
+    [SerializeField] private List<GameObject> comeDestinationPoints = default;
+    [SerializeField] private List<GameObject> leavDestinationPoints = default;
+    public List<GameObject> ComeDestinationPoints => comeDestinationPoints;
+    public List<GameObject> LeavDestinationPoints => leavDestinationPoints;
+
+
     private List<Truck> activeTrucks;
     public delegate Truck OnTruckSpawn();
     public OnTruckSpawn TruckSpawn;
 
     private void Start()
-    {
+    { 
         //Subscribe to event
         TruckSpawn += InstantiateRandomTruck;
         onTruckSpawn();

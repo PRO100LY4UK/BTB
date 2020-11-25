@@ -20,14 +20,17 @@ public class Truck : MonoBehaviour
     private NavMeshAgent agent;
     private TruckSpawner truckSpawner;
 
-    private List<GameObject> truckDestinationPoints;
+    private List<GameObject> comeTruckDestinationPoints;
+    private List<GameObject> leavTruckDestinationPoints;
     private int destination;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         truckSpawner = FindObjectOfType<TruckSpawner>();
-        truckDestinationPoints = truckSpawner.DestinationPoints;
+        comeTruckDestinationPoints = truckSpawner.ComeDestinationPoints;
+        leavTruckDestinationPoints = truckSpawner.LeavDestinationPoints;
+        
     }
 
     private void Start()
@@ -38,12 +41,14 @@ public class Truck : MonoBehaviour
 
     private IEnumerator truckComing()
     {
+        Debug.Log("IEnumerator truckComing");
         onTruckComing.Invoke();
-        foreach (var destinationPoint in truckDestinationPoints)
+        foreach (var destinationPoint in comeTruckDestinationPoints)
         {
             MoveTo(destinationPoint);
             yield return new WaitUntil(() => agent.hasPath);
             yield return new WaitUntil(() => agent.remainingDistance <= 0.5f);
+            Debug.Log("foreach Check");
         }
         yield return new WaitForSeconds(0.5f);
         onSpawnTrash.Invoke();
@@ -60,12 +65,25 @@ public class Truck : MonoBehaviour
         {
             Instantiate(trashBox, spawnPoint.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(spawnDelay);
+            Debug.Log("SpawnerCheck");
         }
         onTruckLeaving.Invoke();
     }
 
     private void truckLeaving()
     {
+        StartCoroutine(truckLeavingENUM());
+    }
+    
+    private IEnumerator truckLeavingENUM()
+    {
+        foreach (var destinationPoint in leavTruckDestinationPoints)
+        {
+            MoveTo(destinationPoint);
+            yield return new WaitUntil(() => agent.hasPath);
+            yield return new WaitUntil(() => agent.remainingDistance <= 0.5f);
+        }
+        yield return new WaitForSeconds(0.5f);
         onTruckDestroy.Invoke();
     }
 

@@ -1,10 +1,12 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Casting))]
 public class Interaction : MonoBehaviour
 {
     [Header("Developer Buttons setup")]
+    
     public KeyCode interactKey;
     public KeyCode abortKey;
 
@@ -20,6 +22,12 @@ public class Interaction : MonoBehaviour
     private void Update()
     {
         InteractRoutine();
+        if (seeingTarget)  UIHandler.Instance .gameObject.SetActive(true);
+        else interactButton.gameObject.SetActive(false);
+
+        if (interactingTarget) endInteractButton.gameObject.SetActive(true);
+        else endInteractButton.gameObject.SetActive(false);
+
     }
 
     /*
@@ -35,7 +43,7 @@ public class Interaction : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(abortKey))
+            if (UIHandler.)
             {
                 seeingTarget.StopInteraction();
                 interactingTarget = null;

@@ -4307,9 +4307,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicles:
   - {fileID: 1686409512690111609, guid: 6739e7633419f504ea7e03935f9cd658, type: 3}
-  destinationPoints:
+  comeDestinationPoints:
   - {fileID: 1582414580}
   - {fileID: 2059777365}
+  leavDestinationPoints:
+  - {fileID: 2059777365}
+  - {fileID: 2027054628}
 --- !u!1 &2059777365
 GameObject:
   m_ObjectHideFlags: 0
