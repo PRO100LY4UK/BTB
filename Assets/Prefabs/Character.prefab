@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 1506774795}
   - component: {fileID: 1506774789}
   - component: {fileID: 8780732784249476627}
+  - component: {fileID: 603222056}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -130,8 +131,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.0000002
-  m_Radius: 0.50000006
+  m_Height: 1.99
+  m_Radius: 0.48
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820d2bb016664ff438d2cb266e24b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 10
+  speedMove: 20
   jumpPower: 7
 --- !u!95 &2691327910363368370
 Animator:
@@ -215,6 +216,18 @@ MonoBehaviour:
   rayCastPoint: {fileID: 8202455798404109013}
   rayCastRange: 10
   Target: {fileID: 0}
+--- !u!114 &603222056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636901124308496542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f429a6e3ea73354c9cffb3bd3e232ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8202455798404109013
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8202455798404109013}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02788883, y: 0, z: -0.003281908}
+  m_LocalPosition: {x: -0.02788883, y: -0.649, z: -0.003281908}
   m_LocalScale: {x: 0.22222224, y: 0.22222224, z: 0.22222224}
   m_Children: []
   m_Father: {fileID: 476774814071669725}

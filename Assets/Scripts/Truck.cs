@@ -20,8 +20,8 @@ public class Truck : MonoBehaviour
     private NavMeshAgent agent;
     private TruckSpawner truckSpawner;
 
-    private List<GameObject> comeTruckDestinationPoints;
-    private List<GameObject> leavTruckDestinationPoints;
+    private List<Transform> comeTruckDestinationPoints;
+    private List<Transform> leavTruckDestinationPoints;
     private int destination;
 
     private void Awake()
@@ -41,14 +41,12 @@ public class Truck : MonoBehaviour
 
     private IEnumerator truckComing()
     {
-        Debug.Log("IEnumerator truckComing");
         onTruckComing.Invoke();
         foreach (var destinationPoint in comeTruckDestinationPoints)
         {
             MoveTo(destinationPoint);
             yield return new WaitUntil(() => agent.hasPath);
             yield return new WaitUntil(() => agent.remainingDistance <= 0.5f);
-            Debug.Log("foreach Check");
         }
         yield return new WaitForSeconds(0.5f);
         onSpawnTrash.Invoke();
@@ -65,17 +63,15 @@ public class Truck : MonoBehaviour
         {
             Instantiate(trashBox, spawnPoint.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(spawnDelay);
-            Debug.Log("SpawnerCheck");
         }
         onTruckLeaving.Invoke();
     }
 
-    private void truckLeaving()
-    {
-        StartCoroutine(truckLeavingENUM());
-    }
+    private void TruckLeave()
+        => StartCoroutine(OnTruckLeave());
     
-    private IEnumerator truckLeavingENUM()
+    
+    private IEnumerator OnTruckLeave()
     {
         foreach (var destinationPoint in leavTruckDestinationPoints)
         {
@@ -93,13 +89,13 @@ public class Truck : MonoBehaviour
         truckSpawner.TruckSpawn();
     }
 
-    private void MoveTo(GameObject destination)
-        => agent.SetDestination(destination.transform.position);
+    private void MoveTo(Transform destination)
+        => agent.SetDestination(destination.position);
 
     private void SubscribeToEvents()
     {
         onSpawnTrash.AddListener(truckSpawningTrash);
-        onTruckLeaving.AddListener(truckLeaving);
+        onTruckLeaving.AddListener(TruckLeave);
         onTruckDestroy.AddListener(DestroyTruck);
     }
 }

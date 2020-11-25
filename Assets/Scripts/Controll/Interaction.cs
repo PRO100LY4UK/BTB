@@ -1,9 +1,8 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(Casting))]
-public class Interaction : MonoBehaviour
+public class Interaction : MonoBehaviour, IAction
 {
     [Header("Developer Buttons setup")]
     
@@ -18,17 +17,15 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Interactable seeingTarget;
     [Header("Interacting WITH Target")]
     [SerializeField] private Interactable interactingTarget;
-    
+
+    private ActionScheduler actionScheduler;
+
+    private void Awake()
+        => actionScheduler = GetComponent<ActionScheduler>();
+
     private void Update()
-    {
-        InteractRoutine();
-        if (seeingTarget)  UIHandler.Instance .gameObject.SetActive(true);
-        else interactButton.gameObject.SetActive(false);
-
-        if (interactingTarget) endInteractButton.gameObject.SetActive(true);
-        else endInteractButton.gameObject.SetActive(false);
-
-    }
+        => InteractRoutine();
+    
 
     /*
      * Function to check if we are Interacting
@@ -37,13 +34,13 @@ public class Interaction : MonoBehaviour
      */
     private void InteractRoutine()
     {
-        if (interactingTarget == null)
+        if (!interactingTarget)
         {
             GetInteractableTarget();
         }
-        else
+        else if (interactingTarget)
         {
-            if (UIHandler.)
+            if (Input.GetKeyDown(abortKey))
             {
                 seeingTarget.StopInteraction();
                 interactingTarget = null;
@@ -60,17 +57,32 @@ public class Interaction : MonoBehaviour
         // target = casting.target если casting.target существует и есть компонент 
         seeingTarget = Casting.target != null ? Casting.target?.GetComponent<Interactable>() : null;
 
-        if (!seeingTarget) return;
+        if (!seeingTarget) return; 
         // () => FUNCTIONNAME , this is how you call a "delegate" EVENT , its also called a "callback function"
-        InteractWithTarget(() => seeingTarget.StartInteraction(gameObject));
+        InteractWithTarget();
     }
 
-    private void InteractWithTarget(Action interaction)
+    private void InteractWithTarget()
     {
         if (Input.GetKeyDown(interactKey))
         {
-            interactingTarget = seeingTarget;
-            interaction.Invoke();
+            StartInteraction();
         }
+        UIHandler.Instance.InteractionUiHandler.PrepareInteraction(true);
+    }
+
+    public void StartInteraction()
+    {
+        if (!seeingTarget) return;
+        actionScheduler.StartAction(this);
+        interactingTarget = seeingTarget;
+        seeingTarget.StartInteraction(gameObject);
+        
+    }
+
+    public void Cancel()
+    {
+        interactingTarget.StopInteraction();
+        interactingTarget = null;
     }
 }

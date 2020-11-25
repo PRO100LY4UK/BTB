@@ -7,10 +7,10 @@ public class TruckSpawner : MonoBehaviour
     public GameObject[] vehicles = default;
     
     [Header("TruckWayPoints")] 
-    [SerializeField] private List<GameObject> comeDestinationPoints = default;
-    [SerializeField] private List<GameObject> leavDestinationPoints = default;
-    public List<GameObject> ComeDestinationPoints => comeDestinationPoints;
-    public List<GameObject> LeavDestinationPoints => leavDestinationPoints;
+    [SerializeField] private List<Transform> comeDestinationPoints = default;
+    [SerializeField] private List<Transform> leavDestinationPoints = default;
+    public List<Transform> ComeDestinationPoints => comeDestinationPoints;
+    public List<Transform> LeavDestinationPoints => leavDestinationPoints;
 
 
     private List<Truck> activeTrucks;
